@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+
 ext {
     compileSdkVersion = 28
     buildToolsVersion = "28.0.3"
@@ -11,18 +12,12 @@ ext {
 }
 
 allprojects {
-
     buildscript {
         repositories {
             jcenter()
             google()
         }
-        dependencies {
-            classpath 'com.android.tools.build:gradle:3.4.1'
-            classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        }
     }
-
 
     repositories {
         jcenter()
