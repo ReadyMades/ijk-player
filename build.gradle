@@ -1,5 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+ext {
+    compileSdkVersion = 28
+    buildToolsVersion = "28.0.3"
+
+    targetSdkVersion = 28
+
+    versionCode = 800808
+    versionName = "0.8.9"
+}
+
 buildscript {
     repositories {
         jcenter()
@@ -25,14 +35,5 @@ allprojects {
 
 subprojects {
     apply plugin: 'maven'
-}
-
-ext {
-    compileSdkVersion = 28
-    buildToolsVersion = "28.0.2"
-
-    targetSdkVersion = 28
-
-    versionCode = 800808
-    versionName = "0.8.9"
+    version versionName
 }

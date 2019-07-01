@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
 
 android {
     // http://tools.android.com/tech-docs/new-build-system/tips
@@ -33,37 +32,5 @@ ext {
     libraryArtifactId = project.name
 }
 
-publishing {
-    publications {
-        aar(MavenPublication) {
-            groupId libraryGroupId
-            artifactId libraryArtifactId
-            version versionName
-            artifact "${project.buildDir}/outputs/aar/${project.name}-release.aar"
-
-            pom.withXml {
-                def dependencies = asNode().appendNode('dependencies')
-                configurations.getByName("_releaseCompile")
-                        .getResolvedConfiguration()
-                        .getFirstLevelModuleDependencies()
-                        .each {
-                    def dependency = dependencies.appendNode('dependency')
-                    dependency.appendNode('groupId', it.moduleGroup)
-                    dependency.appendNode('artifactId', it.moduleName)
-                    dependency.appendNode('version', it.moduleVersion)
-                }
-            }
-        }
-    }
-    repositories {
-        maven {
-            credentials {
-                username "${mavenUsername}"
-                password "${mavenPassword}"
-            }
-            url "${mavenUrl}"
-        }
-    }
-}
 
 
