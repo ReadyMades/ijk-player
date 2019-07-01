@@ -6,7 +6,7 @@ ext {
 
     targetSdkVersion = 28
 
-    versionCode = 800809
+    versionCode = 800810
     versionName = "0.8.9"
 }
 
